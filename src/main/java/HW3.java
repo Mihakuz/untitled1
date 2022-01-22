@@ -34,17 +34,17 @@ public class HW3 {
             arrRotate[size-1] = temp;
             size --;
         }
-        System.out.println(Arrays.toString(arrRotate));     // разворот первых N элементов массива
+        // System.out.println(Arrays.toString(arrRotate));
 
-        for ( int i = 0; i < (index - 1) ; i ++){
+        for ( int i = 0; i < (index - 1) ; i ++){           // разворот первых N элементов массива
             temp = arrRotate[i];
             arrRotate[i] = arrRotate[index-1];
             arrRotate[index-1] = temp;
             index --;
         }
 
-        System.out.println(Arrays.toString(arrRotate));    // разворот оставшейся части массива
-        for ( int i = ind; i < (size2 ); i ++){
+        //System.out.println(Arrays.toString(arrRotate));
+        for ( int i = ind; i < (size2 ); i ++){         // разворот оставшейся части массива
             temp = arrRotate[i];
             arrRotate[i] = arrRotate[size2-1];
             arrRotate[size2-1] = temp;
