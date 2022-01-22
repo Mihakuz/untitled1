@@ -15,9 +15,12 @@ public class HW3 {
         System.out.println("New array with len and initialValue:\n" + Arrays.toString(getArray(len, initialValue)));
         findMinMaxValues();
         System.out.println(checkBalance(arrBalance)? "Array could be balanced" : " Array couldnt be balances");
+        rotateArray();
 
 
+    }
 
+    private static void rotateArray() {
     }
 
     private static boolean checkBalance(int arrBalance[]) {
