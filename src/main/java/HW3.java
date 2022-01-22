@@ -6,6 +6,8 @@ public class HW3 {
         int len = 7;
         int initialValue = 998;
         int [] arrBalance = {2, 2, 2, 1, 2, 2, 10, 1};
+        int [] arrRotate = {1, 2, 3, 4, 5, 6, 7};
+        int index = 2;  // колличество элементов для сдвига
 
         changeValues();
         makeNewArray();
@@ -15,12 +17,42 @@ public class HW3 {
         System.out.println("New array with len and initialValue:\n" + Arrays.toString(getArray(len, initialValue)));
         findMinMaxValues();
         System.out.println(checkBalance(arrBalance)? "Array could be balanced" : " Array couldnt be balances");
-        rotateArray();
+        rotateArray(arrRotate, index);
 
 
     }
 
-    private static void rotateArray() {
+    private static void rotateArray(int arrRotate[], int index) {
+        int temp = 0;
+        int size = arrRotate.length;
+        int size2 = arrRotate.length;
+        int ind = index;
+
+        for (int i = 0; i < arrRotate.length / 2 ; i ++){   // зеркальный разворот массива,
+            temp = arrRotate[i];                            // arrRotate.length/2 - что бы не
+            arrRotate[i] = arrRotate[size-1];               // развернуло повторно
+            arrRotate[size-1] = temp;
+            size --;
+        }
+        System.out.println(Arrays.toString(arrRotate));     // разворот первых N элементов массива
+
+        for ( int i = 0; i < (index - 1) ; i ++){
+            temp = arrRotate[i];
+            arrRotate[i] = arrRotate[index-1];
+            arrRotate[index-1] = temp;
+            index --;
+        }
+
+        System.out.println(Arrays.toString(arrRotate));    // разворот оставшейся части массива
+        for ( int i = ind; i < (size2 ); i ++){
+            temp = arrRotate[i];
+            arrRotate[i] = arrRotate[size2-1];
+            arrRotate[size2-1] = temp;
+            size2 --;
+        }
+        System.out.println(Arrays.toString(arrRotate));
+
+
     }
 
     private static boolean checkBalance(int arrBalance[]) {
